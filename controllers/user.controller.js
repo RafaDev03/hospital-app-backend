@@ -4,11 +4,17 @@ const { findByIdAndUpdate } = require("mongoose");
 const bcrypt = require("bcryptjs");
 const { generateJWToken } = require("../helpers/jwt");
 const getUsers = async (request, response) => {
-  const users = await User.find({}, "name email role google");
+  const desde = Number(request.query.desde) || 0;
+
+  const [users, count] = await Promise.all([
+    User.find({}, "name email role google").skip(desde).limit(5),
+    User.countDocuments(),
+  ]);
 
   response.json({
     ok: true,
     users,
+    count,
     id: request.id,
   });
 };
