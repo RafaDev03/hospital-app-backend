@@ -1,1 +1,6 @@
+# Ignorar archivos .env
+.env
+
+# Ignorar archivos de dependencias de Node.js
 node_modules/
+package-lock.json

@@ -13,7 +13,7 @@ const { dbConnection } = require("./database/config");
 // Inicializa la aplicación Express
 const app = express();
 
-//Configurar cors
+// Habilita el middleware CORS para permitir solicitudes desde diferentes dominios
 app.use(cors());
 
 //Lectura y parseo del body
@@ -21,6 +21,9 @@ app.use(express.json());
 
 //Bser de datos
 dbConnection();
+
+//Directorio Publico
+app.use(express.static("public"));
 
 //Rutas
 app.use("/api/users", require("./routes/users.routes"));

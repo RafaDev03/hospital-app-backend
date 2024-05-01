@@ -21,7 +21,11 @@ router.post(
   ],
   postDoctors
 );
-router.put("/:id", updateDoctors);
+router.put(
+  "/:id",
+  [validateJWT, check("name", "Name is required").not().isEmpty()],
+  updateDoctors
+);
 router.delete("/:id", deleteDoctors);
 
 module.exports = router;
