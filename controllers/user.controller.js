@@ -69,7 +69,7 @@ const updateUser = async (request, res = response) => {
     if (userDB.email !== email) {
       const existEmail = await User.findOne({ email: email });
       if (existEmail) {
-        res.status(400).json({
+        return res.status(400).json({
           ok: false,
           msg: "The email already exists",
         });
