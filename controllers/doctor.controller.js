@@ -95,10 +95,6 @@ const deleteDoctors = async (request, response) => {
       error: error.message,
     });
   }
-  response.json({
-    ok: true,
-    msg: "deleteDoctros",
-  });
 };
 
 module.exports = {

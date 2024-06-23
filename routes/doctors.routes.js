@@ -1,3 +1,4 @@
+//Ruta : /api/doctors
 const { Router } = require("express");
 const {
   getDoctors,
@@ -10,7 +11,7 @@ const { validateFields } = require("../middlewares/validate-fiels");
 const { check, checkExact } = require("express-validator");
 const router = Router();
 
-router.get("/", getDoctors);
+router.get("/", validateJWT, getDoctors);
 router.post(
   "/",
   [

@@ -96,7 +96,7 @@ const deleteUser = async (request, res = response) => {
   try {
     const userDB = await User.findById(id);
     if (userDB) {
-      await User.finDByIdAndDelete(id);
+      await User.findByIdAndDelete(id);
       res.json({
         ok: true,
         nsg: "User deleted",

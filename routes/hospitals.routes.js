@@ -14,7 +14,7 @@ const {
 const { validateJWT } = require("../middlewares/validate-jwt");
 const router = Router();
 
-router.get("/", getHospitals);
+router.get("/", validateJWT, getHospitals);
 router.post(
   "/",
   [
