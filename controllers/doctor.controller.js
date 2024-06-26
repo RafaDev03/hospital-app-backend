@@ -18,6 +18,24 @@ const getDoctors = async (request, response) => {
   }
 };
 
+const getDoctor = async (request, resp) => {
+  const id = request.params.id;
+  try {
+    const doctor = await Doctor.findById(id)
+      .populate("user", "name img")
+      .populate("hospital", "name img");
+    return resp.json({
+      ok: true,
+      doctor,
+    });
+  } catch (error) {
+    return resp.status(500).json({
+      ok: false,
+      msg: "Hable con el administrador",
+    });
+  }
+};
+
 const postDoctors = async (request, response) => {
   const idUser = request.id;
   const doctor = new Doctor({ user: idUser, ...request.body });
@@ -43,7 +61,7 @@ const updateDoctors = async (request, response) => {
   try {
     const doctorDB = await Doctor.findById(id);
     if (!doctorDB) {
-      response.status(404).json({
+      return response.status(404).json({
         ok: false,
         msg: "El doctor no fue encontrado",
       });
@@ -58,13 +76,13 @@ const updateDoctors = async (request, response) => {
       new: true,
     });
 
-    response.json({
+    return response.json({
       ok: true,
       msg: "updateDoctros",
       doctorUpdate,
     });
   } catch (error) {
-    response.status(500).json({
+    return response.status(500).json({
       ok: false,
       error: error.message,
     });
@@ -99,6 +117,7 @@ const deleteDoctors = async (request, response) => {
 
 module.exports = {
   getDoctors,
+  getDoctor,
   postDoctors,
   updateDoctors,
   deleteDoctors,
