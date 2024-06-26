@@ -4,3 +4,14 @@
 # Ignorar archivos de dependencias de Node.js
 node_modules/
 package-lock.json
+uploads/doctors/**.png
+uploads/doctors/**.jpg
+uploads/doctors/**.gif
+
+uploads/hospitals/**.png
+uploads/hospitals/**.jpg
+uploads/hospitals/**.gif
+
+uploads/users/**.png
+uploads/users/**.jpg
+uploads/users/**.png
