@@ -3,6 +3,7 @@ const User = require("../models/user.model");
 const { findByIdAndUpdate } = require("mongoose");
 const bcrypt = require("bcryptjs");
 const { generateJWToken } = require("../helpers/jwt");
+const { getMenuFrontend } = require("../helpers/menu-forntend");
 const getUsers = async (request, response) => {
   const desde = Number(request.query.desde) || 0;
 
@@ -42,6 +43,7 @@ const createUser = async (request, res = response) => {
       ok: true,
       user,
       token,
+      menu: getMenuFrontend(user.role),
     });
   } catch (error) {
     console.log(error);
