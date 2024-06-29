@@ -1,0 +1,1 @@
+import{c as s}from"./chunk-WGZ3CRYS.js";var t=s.base_url,e=class{constructor(i,r,o,a,l,m,n){this.name=i,this.email=r,this.password=o,this.img=a,this.google=l,this.role=m,this.id=n}get getImageUrl(){return this.img?`${t}/uploads/users/${this.img}`:`${t}/uploads/users/no-image`}};export{e as a};

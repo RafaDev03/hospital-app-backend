@@ -1,6 +1,8 @@
 // Carga las variables de entorno desde un archivo .env
 require("dotenv").config();
 
+const path = require("path");
+
 // Importa el framework Express para crear el servidor
 const express = require("express");
 
@@ -32,6 +34,12 @@ app.use("/api/hospitals", require("./routes/hospitals.routes"));
 app.use("/api/doctors", require("./routes/doctors.routes"));
 app.use("/api/search", require("./routes/search.routes"));
 app.use("/api/uploads", require("./routes/uploads.routes"));
+
+//Lo último
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "public/index.html"));
+});
+
 app.listen(process.env.PORT, () =>
   console.log("Server on port ", process.env.PORT || 3000)
 );

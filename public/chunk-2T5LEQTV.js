@@ -1,0 +1,1 @@
+import{c as o}from"./chunk-WGZ3CRYS.js";import{X as n}from"./chunk-OW2OVBTG.js";var p=(()=>{let t=class t{transform(i,e){return`${o.base_url}/uploads/${e}/${i}`}};t.\u0275fac=function(e){return new(e||t)},t.\u0275pipe=n({name:"img",type:t,pure:!0,standalone:!0});let r=t;return r})();export{p as a};
