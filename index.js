@@ -33,5 +33,5 @@ app.use("/api/doctors", require("./routes/doctors.routes"));
 app.use("/api/search", require("./routes/search.routes"));
 app.use("/api/uploads", require("./routes/uploads.routes"));
 app.listen(process.env.PORT, () =>
-  console.log("Server on port ", process.env.PORT)
+  console.log("Server on port ", process.env.PORT || 3000)
 );
